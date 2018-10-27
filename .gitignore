@@ -1,0 +1,17 @@
+# Java files
+*.class
+/**/*.class
+/**/target/
+/**/.idea/
+/**/*.iml
+/**/logs/
+/**/build/
+/**/data/
+/**/.project
+/**/.settings/
+/**/.classpath
+/**/git.properties
+/adverse-media-service/adverse-media-service/
+
+/**/log4j2-dev.xml
+/**/*.log
