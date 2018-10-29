@@ -1,25 +1,36 @@
 package dream.walker;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Node {
 
-    List<Node> childrens;
+    Set<Node> children;
 
     String title;
 
     public Node(String title) {
-        this.childrens = new ArrayList<>();
+        this.children = new HashSet<>();
         this.title = title;
     }
 
     @Override
     public String toString() {
-        String text = "{ \"" + title + "\": [";
-        text += childrens.stream().map(e -> e.toString()).collect(Collectors.joining(", "));
-        text += "] }";
-        return text;
+
+        String value;
+
+        if (children.isEmpty())
+            value = "null";
+        else
+            value = "[" + children.stream().map(Node::toString).collect(Collectors.joining(", ")) + "]";
+
+        return new StringBuilder()
+            .append("{ \"")
+            .append(title)
+            .append("\": ")
+            .append(value)
+            .append("}")
+            .toString();
     }
 }
